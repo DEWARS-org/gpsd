@@ -1,4 +1,5 @@
 import { JsonParseStream } from "@std/json";
+import type { JsonValue } from "@std/json";
 import { DelimiterStream } from "@std/streams";
 import type {
   GpsdClassTypes,
@@ -32,7 +33,7 @@ export class Gpsd {
     await this.conn.write(this.encoder.encode(`${command}\n`));
   }
 
-  getResponseStream() {
+  getResponseStream(): ReadableStream<JsonValue> {
     if (!this.conn) {
       throw new Error("Not connected");
     }
