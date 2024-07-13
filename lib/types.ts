@@ -1,4 +1,4 @@
-enum NmeaMode {
+export enum NmeaMode {
   /**
    * unknown
    */
@@ -20,7 +20,7 @@ enum NmeaMode {
   ThreeD = 3,
 }
 
-enum AntennaStatus {
+export enum AntennaStatus {
   /**
    * Short
    */
@@ -32,7 +32,7 @@ enum AntennaStatus {
   Open = 3,
 }
 
-enum GpsFixStatus {
+export enum GpsFixStatus {
   /**
    * Unknown
    */
@@ -336,7 +336,7 @@ export interface TPV {
   wtemp?: number;
 }
 
-enum QualityIndicator {
+export enum QualityIndicator {
   /**
    * no signal
    */
@@ -378,7 +378,7 @@ enum QualityIndicator {
   CodeAndCarrierLockedAndTimeSynchronized7 = 7,
 }
 
-interface Satellite {
+export interface Satellite {
   /**
    * PRN ID of the satellite.
    * See "PRN, GNSS id, SV id, and SIG id"
@@ -561,39 +561,38 @@ export interface GST {
 }
 
 /**
- *
+ * The heading, pitch, and roll status codes (if present) vary by device.
+ * For the TNT Revolution digital compasses, they are coded as follows:
  */
-// The heading, pitch, and roll status codes (if present) vary by device.
-// * For the TNT Revolution digital compasses, they are coded as follows:
 export type StatusCode =
-/**
- * magnetometer calibration alarm
- */
-| "C"
-/**
- * low alarm
- */
-| "L"
-/**
- * low warning
- */
-| "M"
-/**
- * normal
- */
-| "N"
-/**
- * high warning
- */
-| "O"
-/**
- * high alarm
- */
-| "P"
-/**
- * magnetometer voltage level alarm
- */
-| "V";
+  /**
+   * magnetometer calibration alarm
+   */
+  | "C"
+  /**
+   * low alarm
+   */
+  | "L"
+  /**
+   * low warning
+   */
+  | "M"
+  /**
+   * normal
+   */
+  | "N"
+  /**
+   * high warning
+   */
+  | "O"
+  /**
+   * high alarm
+   */
+  | "P"
+  /**
+   * magnetometer voltage level alarm
+   */
+  | "V";
 
 export interface ATT {
   /**
