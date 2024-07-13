@@ -15,7 +15,7 @@ export class Gpsd {
     this.port = port;
   }
 
-  async connect() {
+  async connect(): Promise<void> {
     this.conn = await Deno.connect({
       hostname: this.hostname,
       port: this.port,
@@ -42,7 +42,7 @@ export class Gpsd {
     this.sendCommand('?WATCH={"enable":true,"json":true}');
   }
 
-  close() {
+  close(): void {
     if (!this.conn) {
       throw new Error("Not connected");
     }
@@ -65,7 +65,7 @@ export class Gpsd {
     return stream;
   }
 
-  public sendCommand(data: string) {
+  public sendCommand(data: string): void {
     if (!this.outgoingStream) {
       throw new Error("Not connected");
     }
