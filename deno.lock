@@ -13,7 +13,10 @@
         "integrity": "9392e72af80adccaa1197912fa19990ed091cb98d5c9c4344b0c301b22d7c632"
       },
       "@std/io@0.224.2": {
-        "integrity": "25ecd4f674527d660ab09e571e15eb541e8eb8a4575f2d20bdbf029374a609b5"
+        "integrity": "25ecd4f674527d660ab09e571e15eb541e8eb8a4575f2d20bdbf029374a609b5",
+        "dependencies": [
+          "jsr:@std/bytes@^1.0.0-rc.3"
+        ]
       },
       "@std/json@0.224.1": {
         "integrity": "2a18a8000707190e467f94b2732f6f88a3094db823765d8c58925bb5efeac29a",

@@ -1,4 +1,4 @@
-import { JsonParseStream, JsonStringifyStream } from "@std/json";
+import { JsonParseStream } from "@std/json";
 import { TextLineStream } from "@std/streams";
 import type { GpsdClass, MessageByClass } from "./types.ts";
 import { ClassFilterStream } from "./classFilterStream.ts";
@@ -8,7 +8,7 @@ export class Gpsd {
   private port: number;
   private conn?: Deno.Conn;
   private outgoingStream?: ReadableStreamDefaultController<unknown>;
-  private incommingStream?: ReadableStream;
+  private incomingStream?: ReadableStream;
 
   constructor(hostname = "127.0.0.1", port = 2947) {
     this.hostname = hostname;
@@ -21,10 +21,10 @@ export class Gpsd {
       port: this.port,
     });
 
-    this.incommingStream = this.conn.readable
+    this.incomingStream = this.conn.readable
       .pipeThrough(new TextDecoderStream())
       .pipeThrough(new TextLineStream())
-      .pipeThrough(new JsonParseStream());
+      .pipeThrough(new JsonParseStream())
 
     const outgoingStream = new ReadableStream({
       start: (controller) => {
@@ -33,7 +33,6 @@ export class Gpsd {
     });
 
     outgoingStream
-      .pipeThrough(new JsonStringifyStream())
       .pipeThrough(new TextEncoderStream())
       .pipeTo(this.conn.writable)
       .catch((error) => {
@@ -50,35 +49,17 @@ export class Gpsd {
     this.conn.close();
   }
 
-  public async *subscribe<T extends GpsdClass>(
-    dataClass?: T,
-  ): AsyncGenerator<MessageByClass<T>> {
-    if (!this.incommingStream) {
-      throw new Error("Not connected");
-    }
-
-    const stream = this.incommingStream;
-
-    if (dataClass) {
-      stream.pipeThrough(ClassFilterStream(dataClass));
-    }
-
-    for await (const response of stream) {
-      yield response;
-    }
-  }
-
   public stream<T extends GpsdClass>(
     dataClass?: T,
   ): ReadableStream<MessageByClass<T>> {
-    if (!this.incommingStream) {
+    if (!this.incomingStream) {
       throw new Error("Not connected");
     }
 
-    const stream = this.incommingStream;
+    let stream = this.incomingStream;
 
     if (dataClass) {
-      stream.pipeThrough(ClassFilterStream(dataClass));
+      stream = stream.pipeThrough(ClassFilterStream(dataClass));
     }
 
     return stream;
@@ -88,6 +69,7 @@ export class Gpsd {
     if (!this.outgoingStream) {
       throw new Error("Not connected");
     }
+    console.log("Sending command:", data);
     this.outgoingStream.enqueue(data);
   }
 }
