@@ -1,4 +1,4 @@
-import { Gpsd } from "./src/gpsd.ts";
-import * as GpsdTypes from "./src/types.ts"
+import { Gpsd } from "./lib/gpsd.ts";
+import * as GpsdTypes from "./lib/types.ts"
 
 export { Gpsd, GpsdTypes };
