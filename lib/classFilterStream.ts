@@ -1,9 +1,9 @@
-import type { GpsdClass } from "./types.ts";
+import type { GpsdClass, GpsdMessage } from "./types.ts";
 
 export const ClassFilterStream = (dataClass: GpsdClass) =>
-  new TransformStream({
+  new TransformStream<GpsdMessage, GpsdMessage>({
     transform(message, controller) {
-      if (message.MNEMONIC === dataClass) {
+      if (message.class === dataClass) {
         controller.enqueue(message);
       }
     },
