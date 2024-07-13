@@ -2,33 +2,25 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@std/bytes@^1.0.0-rc.3": "jsr:@std/bytes@1.0.0",
-      "jsr:@std/io@^0.224.1": "jsr:@std/io@0.224.2",
-      "jsr:@std/json@^0.224.1": "jsr:@std/json@0.224.1",
-      "jsr:@std/streams@^0.224.1": "jsr:@std/streams@0.224.5",
-      "jsr:@std/streams@^0.224.5": "jsr:@std/streams@0.224.5"
+      "jsr:@std/bytes@^1.0.2-rc.3": "jsr:@std/bytes@1.0.2",
+      "jsr:@std/json@^1.0.0-rc.2": "jsr:@std/json@1.0.0-rc.2",
+      "jsr:@std/streams@^1.0.0-rc.2": "jsr:@std/streams@1.0.0-rc.3",
+      "jsr:@std/streams@^1.0.0-rc.3": "jsr:@std/streams@1.0.0-rc.3"
     },
     "jsr": {
-      "@std/bytes@1.0.0": {
-        "integrity": "9392e72af80adccaa1197912fa19990ed091cb98d5c9c4344b0c301b22d7c632"
+      "@std/bytes@1.0.2": {
+        "integrity": "fbdee322bbd8c599a6af186a1603b3355e59a5fb1baa139f8f4c3c9a1b3e3d57"
       },
-      "@std/io@0.224.2": {
-        "integrity": "25ecd4f674527d660ab09e571e15eb541e8eb8a4575f2d20bdbf029374a609b5",
+      "@std/json@1.0.0-rc.2": {
+        "integrity": "f48870c4471e5ff3157ca4c51bf9a71351c2bac2ba2e1615321254b4d081e84a",
         "dependencies": [
-          "jsr:@std/bytes@^1.0.0-rc.3"
+          "jsr:@std/streams@^1.0.0-rc.2"
         ]
       },
-      "@std/json@0.224.1": {
-        "integrity": "2a18a8000707190e467f94b2732f6f88a3094db823765d8c58925bb5efeac29a",
+      "@std/streams@1.0.0-rc.3": {
+        "integrity": "1e0e8af947c88933cdc4e6c5aed98270e3c9836b271108da14fb4cf4b9fdddc0",
         "dependencies": [
-          "jsr:@std/streams@^0.224.1"
-        ]
-      },
-      "@std/streams@0.224.5": {
-        "integrity": "bcde7818dd5460d474cdbd674b15f6638b9cd73cd64e52bd852fba2bd4d8ec91",
-        "dependencies": [
-          "jsr:@std/bytes@^1.0.0-rc.3",
-          "jsr:@std/io@^0.224.1"
+          "jsr:@std/bytes@^1.0.2-rc.3"
         ]
       }
     }
@@ -36,8 +28,8 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@std/json@^0.224.1",
-      "jsr:@std/streams@^0.224.5"
+      "jsr:@std/json@^1.0.0-rc.2",
+      "jsr:@std/streams@^1.0.0-rc.3"
     ]
   }
 }
