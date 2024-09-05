@@ -16,6 +16,7 @@ export class Gpsd {
   }
 
   async connect(): Promise<void> {
+    console.log(`Connecting to GPSD at ${this.hostname}:${this.port}`);
     this.conn = await Deno.connect({
       hostname: this.hostname,
       port: this.port,
@@ -24,7 +25,7 @@ export class Gpsd {
     this.incomingStream = this.conn.readable
       .pipeThrough(new TextDecoderStream())
       .pipeThrough(new TextLineStream())
-      .pipeThrough(new JsonParseStream())
+      .pipeThrough(new JsonParseStream());
 
     const outgoingStream = new ReadableStream({
       start: (controller) => {

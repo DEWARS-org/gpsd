@@ -814,8 +814,7 @@ export interface OSC {
 
 export type GpsdMessage = TPV | SKY | GST | ATT | IMU | TOFF | PPS | OSC;
 
-export type GpsdClass = GpsdMessage extends { class: infer U } ? U
-  : never;
+export type GpsdClass = GpsdMessage extends { class: infer U } ? U : never;
 
 type GpsdMessageMap = {
   [K in GpsdMessage as K["class"]]: K;
