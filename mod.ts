@@ -1,13 +1,13 @@
 import { Gpsd } from "./lib/gpsd.ts";
 import type {
   ATT,
-  StatusCode,
   GST,
   IMU,
   OSC,
   PPS,
   Satellite,
   SKY,
+  StatusCode,
   TOFF,
   TPV,
 } from "./lib/types.ts";
@@ -18,28 +18,20 @@ import {
   QualityIndicator,
 } from "./lib/types.ts";
 
-export {
-  Gpsd,
-  // TPV
-  NmeaMode,
-  AntennaStatus,
-  GpsFixStatus,
-  type TPV,
-  // SKY
-  QualityIndicator,
-  type Satellite,
-  type SKY,
-  // GST
-  type GST,
-  // ATT
-  type StatusCode,
-  type ATT,
-  // IMU
-  type IMU,
-  // TOFF
-  type TOFF,
-  // PPS
-  type PPS,
-  // OSC
-  type OSC,
-};
+export { Gpsd };
+// TPV
+export { AntennaStatus, GpsFixStatus, NmeaMode, type TPV };
+// SKY
+export { QualityIndicator, type Satellite, type SKY };
+// GST
+export type { GST };
+// ATT
+export type { ATT, StatusCode };
+// IMU
+export type { IMU };
+// TOFF
+export type { TOFF };
+// PPS
+export type { PPS };
+// OSC
+export type { OSC };
