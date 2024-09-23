@@ -1,3 +1,22 @@
+export enum DeviceFlag {
+  /**
+   * GPS data has been seen on this device
+   */
+  SEEN_GPS = 0x01,
+  /**
+   * RTCM2 data has been seen on this device
+   */
+  SEEN_RTCM2 = 0x02,
+  /**
+   * RTCM3 data has been seen on this device
+   */
+  SEEN_RTCM3 = 0x04,
+  /**
+   * AIS data has been seen on this device
+   */
+  SEEN_AIS = 0x08,
+}
+
 export interface DEVICE {
   /**
    * Fixed: "DEVICE"
