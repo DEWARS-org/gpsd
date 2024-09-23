@@ -15,4 +15,4 @@ jobs:
       - uses: denoland/setup-deno@main
         with:
           deno-version: v2.0.0-rc.3
-      - run: npx jsr publish
+      - run: deno publish
