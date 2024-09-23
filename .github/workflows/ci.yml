@@ -3,15 +3,16 @@ name: Publish
 on:
   push
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v1
+      - uses: denoland/setup-deno@main
         with:
-          deno-version: v1.x
+          deno-version: v2.0.0-rc.3
       - run: npx jsr publish
