@@ -1,4 +1,4 @@
-import type { GpsdClass, GpsdMessage } from "./types.ts";
+import type { GpsdClass, GpsdMessage } from "../mod.ts";
 
 export const ClassFilterStream = (dataClass: GpsdClass) =>
   new TransformStream<GpsdMessage, GpsdMessage>({

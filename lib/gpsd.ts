@@ -1,6 +1,6 @@
 import { JsonParseStream } from "@std/json";
 import { TextLineStream } from "@std/streams";
-import type { GpsdClass, MessageByClass } from "./types.ts";
+import type { GpsdClass, MessageByClass } from "../mod.ts";
 import { ClassFilterStream } from "./classFilterStream.ts";
 
 export class Gpsd {
