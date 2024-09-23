@@ -33,11 +33,11 @@ export type StatusCode =
    */
   | "V";
 
-export interface ATT {
+export interface ATTBase {
   /**
    * Fixed: "ATT"
    */
-  class: "ATT";
+  class: "ATT" | "IMU";
 
   /**
    * Name of originating device
@@ -174,4 +174,11 @@ export interface ATT {
    * Temperature at the sensor, degrees centigrade.
    */
   temp?: number;
+}
+
+export interface ATT extends ATTBase {
+  /**
+   * Fixed: "ATT"
+   */
+  class: "ATT";
 }

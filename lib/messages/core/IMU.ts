@@ -1,6 +1,6 @@
-import type { ATT } from "./ATT.ts";
+import type { ATTBase } from "./ATT.ts";
 
-export interface IMU extends ATT {
+export interface IMU extends ATTBase {
   /**
    * Fixed: "IMU"
    */
