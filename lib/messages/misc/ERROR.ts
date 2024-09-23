@@ -1,4 +1,4 @@
-export interface DEVICES {
+export interface ERROR {
   /**
    * Fixed: "ERROR"
    */
