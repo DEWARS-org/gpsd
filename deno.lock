@@ -3,8 +3,9 @@
   "specifiers": {
     "jsr:@std/bytes@^1.0.2": "1.0.2",
     "jsr:@std/json@1": "1.0.0",
-    "jsr:@std/streams@1": "1.0.5",
-    "jsr:@std/streams@^1.0.5": "1.0.5"
+    "jsr:@std/streams@1": "1.0.6",
+    "jsr:@std/streams@^1.0.5": "1.0.5",
+    "jsr:@std/streams@^1.0.6": "1.0.6"
   },
   "jsr": {
     "@std/bytes@1.0.2": {
@@ -21,12 +22,18 @@
       "dependencies": [
         "jsr:@std/bytes"
       ]
+    },
+    "@std/streams@1.0.6": {
+      "integrity": "022ed94e380d06b4d91c49eb70241b7289ab78b8c2b4c4bbb7eb265e4997c25c",
+      "dependencies": [
+        "jsr:@std/bytes"
+      ]
     }
   },
   "workspace": {
     "dependencies": [
       "jsr:@std/json@1",
-      "jsr:@std/streams@^1.0.5"
+      "jsr:@std/streams@^1.0.6"
     ]
   }
 }

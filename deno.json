@@ -6,6 +6,6 @@
   },
   "imports": {
     "@std/json": "jsr:@std/json@^1.0.0",
-    "@std/streams": "jsr:@std/streams@^1.0.5"
+    "@std/streams": "jsr:@std/streams@^1.0.6"
   }
 }
