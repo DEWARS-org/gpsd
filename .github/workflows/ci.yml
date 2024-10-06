@@ -11,8 +11,11 @@ jobs:
   publish:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@main
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Deno
+        uses: denoland/setup-deno@main
         with:
-          deno-version: v2.0.0-rc.3
-      - run: deno publish
+          deno-version: rc
+      - name: Publish to JSR
+        run: deno publish
